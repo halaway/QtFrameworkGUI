@@ -1,0 +1,9 @@
+/Users/donnie/BuildingQTGUI/build/CMakeFiles/BuildingQTGUI.dir
+/Users/donnie/BuildingQTGUI/build/CMakeFiles/edit_cache.dir
+/Users/donnie/BuildingQTGUI/build/CMakeFiles/rebuild_cache.dir
+/Users/donnie/BuildingQTGUI/build/CMakeFiles/list_install_components.dir
+/Users/donnie/BuildingQTGUI/build/CMakeFiles/install.dir
+/Users/donnie/BuildingQTGUI/build/CMakeFiles/install/local.dir
+/Users/donnie/BuildingQTGUI/build/CMakeFiles/install/strip.dir
+/Users/donnie/BuildingQTGUI/build/CMakeFiles/BuildingQTGUI_autogen_timestamp_deps.dir
+/Users/donnie/BuildingQTGUI/build/CMakeFiles/BuildingQTGUI_autogen.dir

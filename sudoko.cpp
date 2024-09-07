@@ -8,7 +8,7 @@
 #include <future>
 #include "sudoko.h"
 
-//Create 2D Vector Function
+// Create 2D Vector Function
 std::vector<std::vector<std::string>> CreateVect(int size)
 {
     std::vector<std::vector<std::string>> vect(size);
@@ -23,34 +23,17 @@ std::vector<std::vector<std::string>> CreateVect(int size)
     return vect;
 }
 
-//Char to String Function
-char *toChar(std::string const str)
-{
-    char *value;
-    if (str != "")
-    {
-        char val[str.length() + 1];
-        strcpy(val, str.c_str());
-        value = new char(val[0]);
-    }
-    else
-    {
-        value = new char(' ');
-    }
-    return value;
-}
-
-//Read Text File & return 2D Matrix
+// Read Text File & return 2D Matrix
 std::vector<std::vector<std::string>> readIn(std::ifstream &fileInput, int size)
 {
 
-    //Create new vector
+    // Create new vector
     auto newVector = CreateVect(size);
 
-    //Row & Columns
+    // Row & Columns
     int row, col = 0;
 
-    //Read File
+    // Read File
     std::string word, phrase;
 
     //Traverse File to collect input
@@ -79,6 +62,7 @@ std::vector<std::vector<std::string>> readIn(std::ifstream &fileInput, int size)
     return newVector;
 }
 
+// Initializing temp board
 std::vector<std::vector<std::string>> CreateInitialBoard()
 {
     std::vector<std::vector<std::string>> initialBoard = {
@@ -94,7 +78,7 @@ std::vector<std::vector<std::string>> CreateInitialBoard()
     return initialBoard;
 }
 
-//Parsing CSV with Input File
+// Parsing CSV with Input File
 std::vector<std::vector<std::string>> boardMatrix(std::ifstream &fileName)
 {
     // Creating input string
@@ -123,7 +107,7 @@ std::vector<std::vector<std::string>> boardMatrix(std::ifstream &fileName)
     return finalVec;
 }
 
-//Creating arrays based on CSV containing a puzzle per line
+// Creating arrays based on CSV containing a puzzle per line
 std::vector<std::vector<std::string>> testCSV(std::ifstream &file)
 {
 
@@ -157,7 +141,7 @@ std::vector<std::vector<std::string>> testCSV(std::ifstream &file)
     return puzzle;
 }
 
-//Print 2D Vector
+// Print 2D Vector
 template <typename T>
 void printVector(std::vector<std::vector<T>> vect)
 {
@@ -173,7 +157,7 @@ void printVector(std::vector<std::vector<T>> vect)
     }
 }
 
-//Function to Check 3x3 Grid
+// Function to Check 3x3 Grid
 bool gridCheck(std::vector<std::vector<std::string>> const vect, int row, int col, std::string shape)
 {
 
@@ -204,10 +188,10 @@ bool gridCheck(std::vector<std::vector<std::string>> const vect, int row, int co
         n2 = 4;
     }
 
-    //Find the start of row
+    // Find the start of row
     int start_row = (row / n2) * n2;
 
-    //Find the start of col
+    // Find the start of col
     int start_col = (col / n1) * n1;
 
     for (int i = start_row; i < start_row + n2; i++)
@@ -224,7 +208,7 @@ bool gridCheck(std::vector<std::vector<std::string>> const vect, int row, int co
     return true;
 }
 
-//Find Row Coordinate for Empty Cell
+// Find Row Coordinate for Empty Cell
 int FindEmptyX(std::vector<std::vector<std::string>> vect)
 {
     for (int i = 0; i < vect[0].size(); i++)
@@ -240,7 +224,7 @@ int FindEmptyX(std::vector<std::vector<std::string>> vect)
     return -1;
 }
 
-//Find Col Coordinate for Empty Cell
+// Find Col Coordinate for Empty Cell
 int FindEmptyY(std::vector<std::vector<std::string>> vect)
 {
     //if(col  == vect[0].size() - 1 && vect[row][col] == "." ){col = 0;row++;}
@@ -257,7 +241,7 @@ int FindEmptyY(std::vector<std::vector<std::string>> vect)
     return -1;
 }
 
-//Function to check if a number is present vertically & horizontally
+// Function to check if a number is present vertically & horizontally
 bool leftRight(std::vector<std::vector<std::string>> const vect, int row, int col, std::string shape)
 {
 
@@ -273,55 +257,55 @@ bool leftRight(std::vector<std::vector<std::string>> const vect, int row, int co
     return true;
 }
 
-//Recursive Sudoku Solver
+// Recursive Sudoku Solver
 bool SudukoSolves(std::vector<std::vector<std::string>> &vect, std::vector<std::string> arr)
 {
-    //Finding Empty Cell
-    //Create Asynchronous Operation for Empty Row
+    // Finding Empty Cell
+    // Create Asynchronous Operation for Empty Row
     std::future<int> tRow = std::async(std::launch::async, FindEmptyX, vect);
 
-    //Second Asynchronous Operation for Empty Column
+    // Second Asynchronous Operation for Empty Column
     std::future<int> tCol = std::async(std::launch::async, FindEmptyY, vect);
 
-    //Retrieving values
+    // Retrieving values
     int row = tRow.get();
     int col = tCol.get();
 
-    //Keep track of values
+    // Keep track of values
     std::string num;
 
-    //Check for All possible Positions
+    // Check for All possible Positions
     if (row == -1 && col == -1)
         return true;
 
-    //Traverse Possible Values in arr
+    // Traverse Possible Values in arr
     for (int i = 0; i < arr.size(); i++)
     {
 
-        //Set Value of Num
+        // Set Value of Num
         num = arr[i];
 
-        //Check if value appears horizontally & vertically
+        // Check if value appears horizontally & vertically
         if (leftRight(vect, row, col, num))
         {
 
-            //Set label in board
+            // Set label in board
             vect[row][col] = num;
 
-            //Recursive Call to function to check for values in that position
-            //returns true if a possible solution is found
+            // Recursive Call to function to check for values in that position
+            // returns true if a possible solution is found
             if (SudukoSolves(vect, arr))
             {
                 return true;
             }
-            //BackTrack and reset Empty cell
+            // BackTrack and reset Empty cell
             else
             {
                 vect[row][col] = "-";
             }
         }
     }
-    //Returns false if all values in array are traversed and do not create a solution
+    // Returns false if all values in array are traversed and do not create a solution
     return false;
 }
 

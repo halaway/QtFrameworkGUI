@@ -14,6 +14,16 @@
 #include <QFileDialog>
 #include <QMessageBox>
 
+/**
+ *
+ * Window declarations for GUI creation and
+ * Handling I/O Operations following Qt Framework
+ *
+ *
+ **/
+
+
+
 Window::Window(QWidget *parent) : QWidget(parent)
 {
 
@@ -351,24 +361,25 @@ void Window::keyPressEvent(QKeyEvent *event)
         {
             input = QString::number(event->key() - Qt::Key_0);
         }
-        // Use the selectedCell position to update the board (or scene)
+        // Using the selectedCell position to update the board
         int row = selectedCell.y();
         int col = selectedCell.x();
 
         // If there's already a text item in this cell, remove it
         if (board[row][col] != nullptr)
         {
+            // Free memory of the old item
             scene->removeItem(board[row][col]);
-            delete board[row][col]; // Free memory of the old item
+            delete board[row][col];
         }
 
         // Create a new text item with the input
         QGraphicsTextItem *textItem = new QGraphicsTextItem(input);
-        board[row][col] = textItem; // Store the new text
+        board[row][col] = textItem;
 
         BoardPositions[row][col] = input.toStdString();
 
-        int xPos = col * 40 + 10; // Adjust as necessary
+        int xPos = col * 40 + 10;
         int yPos = row * 40 + 10;
         textItem->setPos(xPos, yPos);
 
@@ -376,7 +387,7 @@ void Window::keyPressEvent(QKeyEvent *event)
         textItem->setFont(font);
         textItem->setDefaultTextColor(Qt::black);
 
-        // Add the new text item to the scene
+        // Adding the new text item to the scene
         scene->addItem(textItem);
 
         posClicked = false; // Reset the click state after input
@@ -385,10 +396,10 @@ void Window::keyPressEvent(QKeyEvent *event)
     else if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter)
     {
         auto b = SudukoSolves(BoardPositions);
-        //std::cout << "SOLVING" << std::endl;
+
         int cellSize = 40; // Each cell size is 40x40
 
-        // Loop through the 2D vector and add text items to the scene
+        // Looping through the 2D vector and adding text items to the scene
         for (int row = 0; row < 9; ++row)
         {
             for (int col = 0; col < 9; ++col)
@@ -396,45 +407,30 @@ void Window::keyPressEvent(QKeyEvent *event)
                 // Get the character or string to display
                 std::string value = BoardPositions[row][col];
 
-                // Create a QGraphicsTextItem for each cell
+                // Creating a QGraphicsTextItem for each cell
                 QGraphicsTextItem *textItem = new QGraphicsTextItem(QString::fromStdString(value));
 
                 if (board[row][col] != nullptr)
                 {
                     scene->removeItem(board[row][col]);
-                    delete board[row][col]; // Free memory of the old item
+                    delete board[row][col];
                 }
 
-                // Set the position of the text in the center of the cell
-                int xPos = col * cellSize + cellSize / 4; // Adjust for padding
+                // Setting the position of the text in the center of the cell
+                int xPos = col * cellSize + cellSize / 4;
                 int yPos = row * cellSize + cellSize / 4;
                 textItem->setPos(xPos, yPos);
 
-                // Optionally, you can set font, size, and other text properties
+                // Setting Font attributes
                 QFont font("Times", 24);
                 textItem->setFont(font);
                 textItem->setDefaultTextColor(Qt::black);
 
-                // Add the text item to the scene
+                // Adding the text item to the scene
                 scene->addItem(textItem);
             }
         }
     }
 
-    // for(int i = 0; i < 9; i++){
-
-    //     for(int j = 0; j < 9; j++){
-    //         std::cout<<BoardPositions[i][j]<<" ";
-    //     }
-    //     std::cout<<std::endl;
-    // }
-
     return;
 }
-
-// Create and position the button
-// m_button = new QPushButton("Hello World", this);
-// m_button->setGeometry(10, 10, 80, 30);
-
-// NEW : Make the connection
-//connect(m_button, SIGNAL (clicked()), QApplication::instance(), SLOT (quit()));

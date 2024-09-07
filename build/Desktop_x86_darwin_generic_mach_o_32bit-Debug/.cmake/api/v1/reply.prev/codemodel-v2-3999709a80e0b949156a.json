@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-aae45c84cfa926f30793.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "BuildingQTGUI",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "BuildingQTGUI::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-BuildingQTGUI-Debug-0ecd04e3d233fe4dcc40.json",
+					"name" : "BuildingQTGUI",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "BuildingQTGUI_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-BuildingQTGUI_autogen-Debug-676ecc9ffae818d9a302.json",
+					"name" : "BuildingQTGUI_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "BuildingQTGUI_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-BuildingQTGUI_autogen_timestamp_deps-Debug-cbc7d174ce75a1cd3849.json",
+					"name" : "BuildingQTGUI_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/donnie/BuildingQTGUI/build/Desktop_x86_darwin_generic_mach_o_32bit-Debug",
+		"source" : "/Users/donnie/BuildingQTGUI"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
