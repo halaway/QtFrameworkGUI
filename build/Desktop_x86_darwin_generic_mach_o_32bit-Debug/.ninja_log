@@ -1,0 +1,9 @@
+# ninja log v6
+8	640	1725697531949859978	BuildingQTGUI_autogen/timestamp	967c88da09067adc
+8	640	1725697531949859978	BuildingQTGUI_autogen/mocs_compilation.cpp	967c88da09067adc
+8	640	1725697531949859978	/Users/donnie/BuildingQTGUI/build/Desktop_x86_darwin_generic_mach_o_32bit-Debug/BuildingQTGUI_autogen/timestamp	967c88da09067adc
+8	640	1725697531949859978	/Users/donnie/BuildingQTGUI/build/Desktop_x86_darwin_generic_mach_o_32bit-Debug/BuildingQTGUI_autogen/mocs_compilation.cpp	967c88da09067adc
+643	3616	1725697531989773206	CMakeFiles/BuildingQTGUI.dir/BuildingQTGUI_autogen/mocs_compilation.cpp.o	23be25a40974587b
+644	3667	1725697531990149459	CMakeFiles/BuildingQTGUI.dir/main.cpp.o	7e562a4103d075df
+644	3683	1725697531990533026	CMakeFiles/BuildingQTGUI.dir/mainwindow.cpp.o	c64eff24dca8329e
+3684	4038	1725697535029819854	BuildingQTGUI.app/Contents/MacOS/BuildingQTGUI	7653f20260333e57
