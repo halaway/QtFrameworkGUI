@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-8793667d8479cf5a0d18.json",
+					"jsonFile" : "directory-.-Debug-aae45c84cfa926f30793.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "BuildingQTGUI::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-BuildingQTGUI-Debug-3ed92d559325b8c92aa2.json",
+					"jsonFile" : "target-BuildingQTGUI-Debug-80cc522efe3276511895.json",
 					"name" : "BuildingQTGUI",
 					"projectIndex" : 0
 				},

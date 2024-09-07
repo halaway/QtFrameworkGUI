@@ -1,11 +1,21 @@
 #include "mainwindow.h"
-
+#include <QPushButton>
 #include <QApplication>
+#include "window.h"
+#include <iostream>
+#include <string>
+
+#include <fstream>
+#include "sudoko.h"
+#include <QFile>
+#include <QIODevice>
+#include <QDebug>
+
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+    QApplication app (argc, argv);
+    Window window;
+    window.show();
+    return app.exec();
 }
