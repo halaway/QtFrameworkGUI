@@ -63,7 +63,7 @@ Window::Window(QWidget *parent) : QWidget(parent)
     // Set the geometry of the button
     s_button->setGeometry(240, 362, 80, 30);
 
-    //Seting the style using setStyleSheet
+    //Setting the style using setStyleSheet
     s_button->setStyleSheet(
         "QPushButton {"
         "border: 1px solid black;"
@@ -194,7 +194,7 @@ void Window::Render()
             textItem->setPos(xPos, yPos);
 
             // Set font and color for the text
-            QFont font("Times", 24);
+            QFont font("Times", 20);
             textItem->setFont(font);
             textItem->setDefaultTextColor(Qt::black);
 
@@ -260,7 +260,7 @@ void Window::RenderBoard()
             textItem->setPos(xPos, yPos);
 
             // Optionally, you can set font, size, and other text properties
-            QFont font("Times", 24);
+            QFont font("Times", 20);
             textItem->setFont(font);
             textItem->setDefaultTextColor(Qt::black);
 
@@ -383,7 +383,7 @@ void Window::keyPressEvent(QKeyEvent *event)
         int yPos = row * 40 + 10;
         textItem->setPos(xPos, yPos);
 
-        QFont font("Times", 24);
+        QFont font("Times", 20);
         textItem->setFont(font);
         textItem->setDefaultTextColor(Qt::black);
 
@@ -422,7 +422,7 @@ void Window::keyPressEvent(QKeyEvent *event)
                 textItem->setPos(xPos, yPos);
 
                 // Setting Font attributes
-                QFont font("Times", 24);
+                QFont font("Times", 20);
                 textItem->setFont(font);
                 textItem->setDefaultTextColor(Qt::black);
 
