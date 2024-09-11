@@ -1,5 +1,7 @@
 <h1 align="center"> Qt Framework GUI </h1>
 
+[![pages-build-deployment](https://github.com/controlled-arch/controlled-arch.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/controlled-arch/controlled-arch.github.io/actions/workflows/pages/pages-build-deployment)
+
 <h3>A simple Qt6.5 program for creating both native and browser based GUI applications, built with CMake, Qt Creator, and Emscripten.</h3> 
 
 ## Description
